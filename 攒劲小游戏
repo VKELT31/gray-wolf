@@ -1,0 +1,83 @@
+import time
+
+def intro():
+    print("欢迎来到《冒险之路》！在这个游戏中，你将面临各种冒险和挑战。")
+    print("你的冒险即将开始...")
+    time.sleep(2)
+    start_adventure()
+
+def start_adventure():
+    print("\n你发现自己身处一个神秘的森林中。")
+    print("你的左边是一片茂密的树林，右边是一条小径。")
+    print("你要选择去左边的树林还是右边的小径？")
+    choice = input("输入 'left' 或 'right': ").lower()
+
+    if choice == "left":
+        explore_forest()
+    elif choice == "right":
+        follow_path()
+    else:
+        print("请输入有效的选项！")
+        start_adventure()
+
+def explore_forest():
+    print("\n你进入了树林，树木高大茂密，难以穿行。")
+    print("突然，你听到了远处传来的声音...")
+    time.sleep(2)
+    print("一只巨大的熊出现在你的面前！")
+    print("你要逃跑还是与熊搏斗？")
+    choice = input("输入 'run' 或 'fight': ").lower()
+
+    if choice == "run":
+        print("\n你拼命逃跑，成功逃脱了熊的追击！")
+        start_adventure()
+    elif choice == "fight":
+        print("\n你决定与熊搏斗！")
+        print("经过一番激战，你成功打败了熊！")
+        time.sleep(2)
+        print("你获得了熊的宝藏，继续你的冒险...")
+        start_adventure()
+    else:
+        print("请输入有效的选项！")
+        explore_forest()
+
+def follow_path():
+    print("\n你选择了右边的小径。小径通向一个废弃的城堡。")
+    print("你要进入城堡还是返回？")
+    choice = input("输入 'enter' 或 'return': ").lower()
+
+    if choice == "enter":
+        explore_castle()
+    elif choice == "return":
+        start_adventure()
+    else:
+        print("请输入有效的选项！")
+        follow_path()
+
+def explore_castle():
+    print("\n你进入了城堡，发现里面一片昏暗，充满了神秘气息。")
+    print("你要继续探索还是离开？")
+    choice = input("输入 'explore' 或 'leave': ").lower()
+
+    if choice == "explore":
+        print("\n你发现了一扇锈迹斑斑的门，似乎通往地下室。")
+        print("你要打开门吗？")
+        choice = input("输入 'open' 或 'leave': ").lower()
+        if choice == "open":
+            print("\n你打开了门，进入了地下室...")
+            # 在这里可以继续添加更多的故事情节和冒险内容
+        elif choice == "leave":
+            print("\n你决定离开城堡。")
+            start_adventure()
+        else:
+            print("请输入有效的选项！")
+            explore_castle()
+    elif choice == "leave":
+        print("\n你决定离开城堡。")
+        start_adventure()
+    else:
+        print("请输入有效的选项！")
+        explore_castle()
+
+# 游戏开始
+intro()
